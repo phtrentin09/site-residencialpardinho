@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://residencialpardinho.com.br/sitemap.xml
