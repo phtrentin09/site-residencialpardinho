@@ -20,6 +20,7 @@
   --accent:#93BDB7; --sand:#C2AA9B; --cacau:#D5B9A8; --wa:#2E9B6A; color-scheme:dark}
 
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 var(--step-0)/1.65 var(--body);-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--band)}
