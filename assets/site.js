@@ -14,13 +14,18 @@
 
   // cookies
   var ck = document.querySelector(".cookies");
+  function closeCookies(){ if(!ck) return; ck.hidden = true; ck.style.display = "none"; if(ck.parentNode) ck.parentNode.removeChild(ck); ck = null; }
   if(ck){
-    if(!store("pdh-cookies")) ck.hidden = false;
-    ck.addEventListener("click", function(e){
-      var b = e.target.closest("[data-ck]"); if(!b) return;
-      store("pdh-cookies", b.getAttribute("data-ck")); ck.hidden = true;
-      if(b.getAttribute("data-ck")==="all") loadMaps();
-    });
+    if(store("pdh-cookies")){ closeCookies(); }
+    else {
+      ck.hidden = false;
+      ck.addEventListener("click", function(e){
+        var b = e.target.closest("[data-ck]"); if(!b) return;
+        var choice = b.getAttribute("data-ck");
+        store("pdh-cookies", choice); closeCookies();
+        if(choice === "all") loadMaps();
+      });
+    }
   }
 
   // mapa só com consentimento
@@ -35,7 +40,7 @@
   }
   if(store("pdh-cookies")==="all") loadMaps();
   document.addEventListener("click", function(e){
-    if(e.target.closest("[data-load-map]")){ e.preventDefault(); store("pdh-cookies","all"); if(ck) ck.hidden = true; loadMaps(); }
+    if(e.target.closest("[data-load-map]")){ e.preventDefault(); store("pdh-cookies","all"); closeCookies(); loadMaps(); }
   });
 
   // formulário que monta a mensagem do WhatsApp
