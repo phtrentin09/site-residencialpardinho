@@ -19,7 +19,7 @@
     });
     return {
       "default": {
-        firstScene: first, autoLoad: true, sceneFadeDuration: 700,
+        firstScene: first, autoLoad: true, sceneFadeDuration: reduce ? 0 : 700,
         mouseZoom: false, showZoomCtrl: true, showFullscreenCtrl: true, compass: false,
         autoRotate: reduce ? 0 : -2, autoRotateInactivityDelay: 15000,
         strings: {
@@ -56,6 +56,7 @@
         if(start) start.hidden = true;
         viewer = pannellum.viewer(stage, config(base, id));
         viewer.on("scenechange", mark);
+        box.pdhViewer = viewer;
       } else if(viewer.getScene() !== id){
         viewer.loadScene(id);
       }

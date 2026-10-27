@@ -341,3 +341,4 @@ form.wa small{color:var(--muted);font-size:.85rem}
 .tour .eyebrow{color:var(--on-soft)}
 .pnlm-panorama-info{display:none!important}
 .pano-bar .btn-line:hover{background:#F3EEE7;color:#2B4546;border-color:#F3EEE7}
+.chip img{height:auto}
