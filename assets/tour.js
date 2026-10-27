@@ -10,7 +10,7 @@
       scenes[s.id] = {
         title: s.title,
         type: "equirectangular",
-        panorama: base + s.id + ".jpg",
+        panorama: base + s.id + ".jpg" + (s.v ? "?v=" + s.v : ""),
         yaw: s.yaw || 0, pitch: s.pitch || 0, hfov: 105,
         hotSpots: (s.links || []).map(function(l){
           return { pitch: l.pitch, yaw: l.yaw, type: "scene", text: l.text, sceneId: l.to };
